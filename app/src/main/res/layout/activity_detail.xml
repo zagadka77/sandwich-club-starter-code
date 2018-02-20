@@ -7,14 +7,14 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context="com.udacity.sandwichclub.DetailActivity"
         tools:layout_editor_absoluteY="81dp">
 
         <ImageView
             android:id="@+id/image_iv"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="@dimen/image_height"
             android:adjustViewBounds="true"
             android:contentDescription="@string/sandwich_picture_content_description"
             android:scaleType="centerCrop" />
@@ -23,10 +23,11 @@
             android:id="@+id/also_known_label_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginLeft="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/standard_margin"
             android:text="@string/detail_also_known_as_label"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_iv" />
@@ -35,9 +36,11 @@
             android:id="@+id/origin_label_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginLeft="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/standard_margin"
             android:text="@string/detail_place_of_origin_label"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/barrier2" />
@@ -46,9 +49,11 @@
             android:id="@+id/ingredients_label_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginLeft="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/standard_margin"
             android:text="@string/detail_ingredients_label"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/barrier3" />
@@ -57,19 +62,25 @@
             android:id="@+id/description_label_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginLeft="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/standard_margin"
             android:text="@string/detail_description_label"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/description_tv"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/barrier4" />
 
         <TextView
             android:id="@+id/also_known_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:layout_marginLeft="@dimen/smaller_margin"
+            android:layout_marginRight="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/smaller_margin"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:textSize="@dimen/text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/barrier"
             app:layout_constraintTop_toBottomOf="@+id/image_iv"
@@ -79,9 +90,12 @@
             android:id="@+id/origin_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:layout_marginLeft="@dimen/smaller_margin"
+            android:layout_marginRight="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/smaller_margin"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:textSize="@dimen/text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/barrier"
             app:layout_constraintTop_toTopOf="@+id/barrier2"
@@ -91,9 +105,12 @@
             android:id="@+id/ingredients_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:layout_marginLeft="@dimen/smaller_margin"
+            android:layout_marginRight="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/smaller_margin"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:textSize="@dimen/text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/barrier"
             app:layout_constraintTop_toTopOf="@+id/barrier3"
@@ -103,14 +120,15 @@
             android:id="@+id/description_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/smaller_margin"
+            android:textSize="@dimen/text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/barrier"
-            app:layout_constraintTop_toTopOf="@+id/barrier4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/barrier6"
             tools:text="Description Text" />
 
         <android.support.constraint.Barrier
@@ -144,6 +162,14 @@
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="ingredients_tv,ingredients_label_tv"
             tools:layout_editor_absoluteY="511dp" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="description_label_tv"
+            tools:layout_editor_absoluteY="402dp" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,8 +48,13 @@ public class DetailActivity extends AppCompatActivity {
         }
 
         populateUI(sandwich);
+        String image = sandwich.getImage();
         Picasso.with(this)
-                .load(sandwich.getImage())
+                .load(TextUtils.isEmpty(image) ? null : image)
+                // During load-time a placeholder image is loaded
+                .placeholder(R.drawable.loading_placeholder)
+                // If the url was not valid or there were other errors, an image with "n/a" is loaded
+                .error(R.drawable.error_placeholder)
                 .into(ingredientsIv);
 
         setTitle(sandwich.getMainName());

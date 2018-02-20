@@ -1,5 +1,7 @@
 package com.udacity.sandwichclub.utils;
 
+import android.text.TextUtils;
+
 import com.udacity.sandwichclub.model.Sandwich;
 
 import org.json.JSONArray;
@@ -10,6 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonUtils {
+
+    // JSON constants
+    private final static String NAME_JSON = "name";
+    private final static String MAIN_NAME_JSON = "mainName";
+    private final static String ALSO_KNOWN_JSON = "alsoKnownAs";
+    private final static String ORIGIN_JSON = "placeOfOrigin";
+    private final static String DESCRIPTION_JSON = "description";
+    private final static String IMAGE_JSON = "image";
+    private final static String INGREDIENTS_JSON = "ingredients";
+
 
     public static Sandwich parseSandwichJson(String json) {
         String mainName;
@@ -24,33 +36,38 @@ public class JsonUtils {
             JSONObject sandwichJson = new JSONObject(json);
 
             // Extract the name object
-            JSONObject name = sandwichJson.getJSONObject("name");
+            JSONObject name = sandwichJson.getJSONObject(NAME_JSON);
 
             // Extract the mainName String
-            mainName = name.getString("mainName");
+            mainName = name.optString(MAIN_NAME_JSON);
 
             // Extract the alsoKnownAs array of Strings
-            JSONArray alsoKnownAsArray = name.getJSONArray("alsoKnownAs");
+            JSONArray alsoKnownAsArray = name.getJSONArray(ALSO_KNOWN_JSON);
             if (alsoKnownAsArray.length() > 0) {
                 for (int i = 0; i < alsoKnownAsArray.length(); i++) {
-                    alsoKnownAs.add(alsoKnownAsArray.getString(i));
+                    alsoKnownAs.add(alsoKnownAsArray.optString(i));
                 }
             }
 
             // Extract the placeOfOrigin String
-            placeOfOrigin = sandwichJson.getString("placeOfOrigin");
+            placeOfOrigin = sandwichJson.optString(ORIGIN_JSON);
 
             // Extract the description String
-            description = sandwichJson.getString("description");
+            description = sandwichJson.optString(DESCRIPTION_JSON);
 
             // Extract image url String
-            image = sandwichJson.getString("image");
+            image = sandwichJson.optString(IMAGE_JSON);
+            // If the image url String is empty we change it to a non-empty string so that Picasso
+            // loads the error_placeholder instead of the loading_placeholder
+            if (TextUtils.isEmpty(image)) {
+                image = "error";
+            }
 
             // Extract the ingredients array of Strings
-            JSONArray ingredientsArray = sandwichJson.getJSONArray("ingredients");
+            JSONArray ingredientsArray = sandwichJson.getJSONArray(INGREDIENTS_JSON);
             if (ingredientsArray.length() > 0) {
                 for (int i = 0; i < ingredientsArray.length(); i++) {
-                    ingredients.add(ingredientsArray.getString(i));
+                    ingredients.add(ingredientsArray.optString(i));
                 }
             }
 
